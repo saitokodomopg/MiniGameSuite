@@ -1,0 +1,165 @@
+/* 一覧や他のゲームの見た目に影響しないよう、色は .katanuki の中で決める */
+.katanuki {
+  display: flex;
+  gap: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 8px;
+  background: #2b1d14;
+  color: #f5ecd7;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif;
+  text-align: left;
+}
+
+/* 屋台の看板。縦書きにして、縁日の雰囲気を出す */
+.katanuki-sign {
+  writing-mode: vertical-rl;
+  padding: 16px 8px;
+  border-radius: 4px;
+  background: #c8352a;
+  box-shadow: inset 0 0 0 3px #7d1f18;
+  font-size: 1.75rem;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.katanuki-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+  min-width: 0;
+}
+
+.katanuki-hud {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.katanuki-board {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  background: #4a3424;
+  box-shadow: 0 6px 0 #1a100a;
+}
+
+/* なぞっている最中に、画面がスクロール・拡大されないようにする */
+.katanuki-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.katanuki-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(30, 18, 10, 0.55);
+}
+
+.katanuki-card {
+  max-width: 240px;
+  padding: 16px 20px;
+  border-radius: 6px;
+  background: #f5ecd7;
+  box-shadow: 0 4px 0 #8a5a14;
+  color: #2a1704;
+  text-align: center;
+}
+
+.katanuki-card-title {
+  margin: 0 0 6px;
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.katanuki-card-body {
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.katanuki-button {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 4px;
+  background: #c8352a;
+  box-shadow: 0 3px 0 #7d1f18;
+  color: #f5ecd7;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.katanuki-button:focus-visible {
+  outline: 3px solid #f5ecd7;
+  outline-offset: 2px;
+}
+
+.katanuki-button:active {
+  transform: translateY(1px);
+}
+
+.katanuki-meter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+}
+
+.katanuki-meter-label {
+  width: 5em;
+}
+
+.katanuki-meter-track {
+  flex: 1;
+  height: 10px;
+  border-radius: 5px;
+  background: #1a100a;
+  overflow: hidden;
+}
+
+.katanuki-meter-fill {
+  height: 100%;
+  background: #d9a441;
+  transition: width 80ms linear;
+}
+
+.katanuki-meter-fill-danger {
+  background: #c8352a;
+}
+
+.katanuki-meter-value {
+  width: 3em;
+  text-align: right;
+}
+
+.katanuki-hint {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .katanuki-meter-fill {
+    transition: none;
+  }
+}
